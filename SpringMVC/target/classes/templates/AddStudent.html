@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title th:utext="#{lang.addstudent}"></title>
+</head>
+<body>
+	<div style="text-align: left; padding: 5px; margin: 5px; background: #bdc3c7">
+		<a th:href="@{/index}" th:utext="#{lang.home}"></a>
+	</div>
+	<h1 th:utext="#{lang.addstudent}"></h1>
+	<form action="#" method="post" th:action="@{/addStudent}" th:object="${student}">
+		<table>
+			<tr>
+				<td th:utext="#{lang.username}"></td>
+				<td><input type="text" th:field="*{userName}"/></td>
+				<td><span th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}"></span></td>
+			</tr>
+			<tr>
+				<td th:utext="#{lang.firstname}"></td>
+				<td><input type="text" th:field="*{firstName}"/></td>
+				<td><span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></span></td>
+			</tr>
+			<tr>
+				<td th:utext="#{lang.lastname}"></td>
+				<td><input type="text" th:field="*{lastName}"/></td>
+				<td><span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></span></td>
+			</tr>
+			<tr>
+				<td th:utext="#{lang.email}"></td>
+				<td><input type="text" th:field="*{email}"/></td>
+				<td><span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span></td>				
+			</tr>
+			<tr>
+				<td th:utext="#{lang.gender}"></td>
+				<td>
+					<select th:field="*{gender}">
+					    <option th:each="gender : ${genders}"
+                            th:value="${gender.getKey()}"
+                            th:utext="#{${gender.getName()}}"/>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td th:utext="#{lang.country}"></td>
+				<td>
+					<select th:field="*{country}">
+					    <option th:each="country : ${countries}"
+                            th:value="${country.getKey()}"
+                            th:utext="${country.getName()}"/>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td><button type="submit" th:utext="#{lang.submit}"></button></td>
+			</tr>
+		</table>
+	</form>
+	<div th:if="${errorMessage}" th:text="${errorMessage}" style="color: red"></div>
+</body>
+</html>

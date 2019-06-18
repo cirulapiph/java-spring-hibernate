@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Home</title>
+</head>
+<body>
+	<div style="text-align: right; padding: 5px; margin: 5px; background: #bdc3c7">
+		<a th:href="@{/index?lang=en}">Language (English)</a>
+		<a th:href="@{/index?lang=id}">Bahasa (Indonesia)</a>
+	</div>
+	<h1>Hello From Home</h1>
+	<h1 th:text="${greeting}"></h1>
+	
+	<div th:utext="${#locale.language}"></div>
+	
+	<a href="addStudent" th:utext="#{lang.addstudent}"></a>
+	<table border="1">
+		<tr>
+			<td th:utext="#{lang.username}"></td>
+			<td th:utext="#{lang.firstname}"></td>
+			<td th:utext="#{lang.lastname}"></td>
+			<td th:utext="#{lang.email}"></td>
+			<td th:utext="#{lang.gender}"></td>
+			<td th:utext="#{lang.country}"></td>
+		</tr>
+		<tr th:each="student :${students}">
+			<td th:text="${student.userName}"></td>
+			<td th:text="${student.firstName}"></td>
+			<td th:text="${student.lastName}"></td>
+			<td th:text="${student.email}"></td>
+			<td th:text="#{${mapGenders.get(student.gender).getName()}}"></td>
+			<td th:text="${mapCountries.get(student.country).getName()}"></td>
+		</tr>
+	</table>
+</body>
+</html>
