@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Account List Page</title>
+</head>
+<body>
+	<div style="text-align: left; padding: 5px; margin: 5px; background: #bdc3c7">
+		<a th:href="@{/transferFund}">Transfer Fund</a>
+	</div>
+	<h1>List Account</h1>
+	<table border="1">
+		<tr>
+			<td>ID</td>
+			<td>First Name</td>
+			<td>Last Name</td>
+			<td>Balance</td>
+		</tr>
+		<tr th:each="bankAccount :${listBankAccounts}">
+			<td th:text="${bankAccount.id}"></td>
+			<td th:text="${bankAccount.firstName}"></td>
+			<td th:text="${bankAccount.lastName}"></td>
+			<td th:text="${bankAccount.balance}"></td>
+		</tr>
+	</table>
+</body>
+</html>

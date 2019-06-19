@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Transfer Fund</title>
+</head>
+<body>
+	<div style="text-align: left; padding: 5px; margin: 5px; background: #bdc3c7">
+		<a th:href="@{/}">Beranda</a>
+	</div>
+	<div th:if="${errorMessage!=null}" style="color:red; font-style:italic" th:utext="${errorMessage}">..</div>
+	<form action="#" method="POST" th:action="@{/transferFund}" th:object="${transferFund}">
+		<table>
+			<tr>
+				<td>From Account ID</td>
+				<td><input type="text" th:field="*{fromAccount}"/></td>
+		
+			</tr>
+			<tr>
+				<td>To Account ID</td>
+				<td><input type="text" th:field="*{toAccount}"/></td>
+			</tr>
+			<tr>
+				<td>Balance</td>
+				<td><input type="text" th:field="*{balance}"/></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><button type="submit">Kirim</button></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
