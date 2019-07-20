@@ -19,16 +19,16 @@ public class BankAccountServiceImpl implements TransferFundService{
 	public int addAmount(Long id, Double amount) throws TransferFundException {
 		// TODO Auto-generated method stub
 		// 1. find BankAccount exist or not
-//		BankAccount bankAccount = this.findBankAccountById(id);
-//		if (bankAccount==null) {
-//			throw new TransferFundException("Bank Account "+id+" not found!");
-//		}
-//		// 2. Check balance sufficient or not
-//		Double newbalance = bankAccount.getBalance() + amount;
-//		if (bankAccount.getBalance() + amount < 0) {
-//			throw new TransferFundException("Money in account "+id+" is not enough");
-//		}
-//		bankAccount.setBalance(newbalance);
+		BankAccount bankAccount = this.findBankAccountById(id);
+		if (bankAccount==null) {
+			throw new TransferFundException("Bank Account "+id+" not found!");
+		}
+		// 2. Check balance sufficient or not
+		Double newbalance = bankAccount.getBalance() + amount;
+		if (bankAccount.getBalance() + amount < 0) {
+			throw new TransferFundException("Money in account "+id+" is not enough");
+		}
+		bankAccount.setBalance(newbalance);
 		
 		return 0;
 	}
