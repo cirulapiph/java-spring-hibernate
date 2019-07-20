@@ -48,24 +48,20 @@ public class UserService {
 	
 	@Transactional(propagation = Propagation.MANDATORY)
 	public void saveNewUserRole(Long userId, Long roleId) throws EntityNotFoundException {
-		try {
-			Role role = roleRepository.findById(roleId)
-					.orElseThrow(()->new EntityNotFoundException(Role.class, "id",roleId.toString()));
-			
-			userRepository.findById(userId)
-			.map(user -> {
-				if(user.getRoles()==null) {
-					List<Role> roles = new ArrayList<Role>();
-					roles.add(role);
-					user.setRoles(roles);
-				}else {
-					user.getRoles().add(role);
-				}
-				return userRepository.save(user).getRoles();
-			}).orElseThrow(()->new EntityNotFoundException(User.class, "id",userId.toString()));
-		} catch (Exception e) {
-			throw new EntityNotFoundException(User.class, e.getMessage());
-		}
+		Role role = roleRepository.findById(roleId)
+				.orElseThrow(()->new EntityNotFoundException(Role.class, "id",roleId.toString()));
+		
+		userRepository.findById(userId)
+		.map(user -> {
+			if(user.getRoles()==null) {
+				List<Role> roles = new ArrayList<Role>();
+				roles.add(role);
+				user.setRoles(roles);
+			}else {
+				user.getRoles().add(role);
+			}
+			return userRepository.save(user).getRoles();
+		}).orElseThrow(()->new EntityNotFoundException(User.class, "id",userId.toString()));
 	}
 	
 	@Transactional(propagation = Propagation.REQUIRES_NEW, rollbackFor = EntityNotFoundException.class)

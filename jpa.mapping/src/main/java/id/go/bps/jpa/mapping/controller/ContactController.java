@@ -49,15 +49,15 @@ public class ContactController {
 	}
 	
 	@PostMapping("/students/{studentID}/contacts")
-	public Contact addContact(@PathVariable Long studentId,
+	public Contact addContact(@PathVariable Long studentID,
 			@Valid@RequestBody Contact contact ) {
-	 	return studentRepository.findById(studentId)
+	 	return studentRepository.findById(studentID)
 				.map(student -> {
 					contact.setStudent(student);
 					return contactRepository.save(contact);
 				}).
 				orElseThrow(()->new 
-						CustomErrorException("Student With ID :" + studentId +" Not found"));
+						CustomErrorException("Student With ID :" + studentID +" Not found"));
 	}
 	
 	// Get By Id

@@ -54,11 +54,7 @@ public class UserController {
 	// add
 	@PostMapping("/users")
 	public ResponseEntity<CreateUserDTO> addNewUser(@Valid @RequestBody CreateUserDTO newUsers) throws EntityNotFoundException{
-		try {
-			userService.saveAll(newUsers,1,null);
-		} catch (Exception e) {
-			throw new EntityNotFoundException(User.class, e.getMessage());
-		}
+		userService.saveAll(newUsers,1,null);
 		return ResponseEntity.status(HttpStatus.CREATED).body(newUsers);
 	}
 	
@@ -69,11 +65,7 @@ public class UserController {
 		.orElseThrow
 		(()->new EntityNotFoundException(User.class, "id",id.toString()));
 		
-		try {
-			userService.saveAll(updatedUsers, 2, id);
-		} catch (Exception e) {
-			throw new EntityNotFoundException(User.class, e.getMessage());
-		}
+		userService.saveAll(updatedUsers, 2, id);
 		return ResponseEntity.status(HttpStatus.ACCEPTED).body(updatedUsers);
 		
 	}

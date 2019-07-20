@@ -7,5 +7,5 @@ import id.go.bps.jpa.mapping.model.User;
 
 @Repository
 public interface UserRepository extends CrudRepository<User, Long>{
-
+	User findByUserName(String userName);
 }

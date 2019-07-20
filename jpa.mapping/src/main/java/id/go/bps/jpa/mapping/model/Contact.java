@@ -23,8 +23,6 @@ import lombok.NoArgsConstructor;
 @Table(name = "tbl_contact")
 
 public class Contact implements Serializable {
-	private static final long serialVersionUID = 1L;
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;

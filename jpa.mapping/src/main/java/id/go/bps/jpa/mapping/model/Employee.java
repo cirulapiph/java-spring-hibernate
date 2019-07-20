@@ -17,11 +17,13 @@ import lombok.NoArgsConstructor;
 @Table(name = "tbl_employee")
 @IdClass(Employee.EmployeeIdClass.class)
 public class Employee implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
-	@Column(length = 50)
 	private String employeeId;
 	@Id
-	@Column(length = 50)
 	private String companyId;
 	
 	private String firstName;

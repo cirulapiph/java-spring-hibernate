@@ -29,7 +29,7 @@ CREATE TABLE `student_subject` (
   KEY `FK7kkmadawlmo22ddlxn7ya7xc9` (`subject_id`),
   CONSTRAINT `FK7kkmadawlmo22ddlxn7ya7xc9` FOREIGN KEY (`subject_id`) REFERENCES `tbl_subject` (`id`),
   CONSTRAINT `FKoyd6vi8r36wis14o0krc46t4d` FOREIGN KEY (`student_id`) REFERENCES `tbl_student` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -47,7 +47,7 @@ CREATE TABLE `tbl_assignment` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `UK_dwrcs1bqevsu47009w60abwwr` (`student_id`),
   CONSTRAINT `FKlkt60oix6fkm6m31epwhwxpqa` FOREIGN KEY (`student_id`) REFERENCES `tbl_student` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -65,7 +65,7 @@ CREATE TABLE `tbl_contact` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `UK_l0ggcgypq0bvxvo8lp5uadu1p` (`student_id`),
   CONSTRAINT `FKa16d3baa7wtpasdk9fi5vswmu` FOREIGN KEY (`student_id`) REFERENCES `tbl_student` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -76,12 +76,12 @@ DROP TABLE IF EXISTS `tbl_employee`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `tbl_employee` (
-  `company_id` varchar(50) NOT NULL,
-  `employee_id` varchar(50) NOT NULL,
+  `company_id` varchar(255) NOT NULL,
+  `employee_id` varchar(255) NOT NULL,
   `first_name` varchar(255) DEFAULT NULL,
   `last_name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`company_id`,`employee_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -103,7 +103,7 @@ CREATE TABLE `tbl_student` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `UK_av9smssi8vwt023x4rl5bvtxt` (`email`),
   UNIQUE KEY `UK_g0o1ssfc7q9qtjd1t0b6sljtb` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -117,7 +117,7 @@ CREATE TABLE `tbl_subject` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

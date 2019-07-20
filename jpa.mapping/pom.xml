@@ -33,12 +33,21 @@
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
 			<optional>true</optional>
-		</dependency>
+		</dependency> 
+		<!-- 
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+		 -->
+		  
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		 
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
@@ -61,10 +70,12 @@
 		    <version>2.9.2</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.flywaydb/flyway-core -->
+		<!-- 
 		<dependency>
 		    <groupId>org.flywaydb</groupId>
 		    <artifactId>flyway-core</artifactId>
 		</dependency>
+		 -->
 		<!-- Model mapper -->
 		<dependency>
 		  <groupId>org.modelmapper</groupId>
@@ -82,7 +93,14 @@
 		    <groupId>org.apache.commons</groupId>
 		    <artifactId>commons-lang3</artifactId>
 		    <version>3.9</version>
-		</dependency>				
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.auth0/java-jwt -->
+		<!-- Auth0 -->
+		<dependency>
+		    <groupId>com.auth0</groupId>
+		    <artifactId>java-jwt</artifactId>
+		    <version>3.8.1</version>
+		</dependency>								
 	</dependencies>
 
 	<build>
